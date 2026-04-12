@@ -1,0 +1,40 @@
+<suite name="intelehealth Web App Regression Test Suite">
+	<!-- 	<parameter name="browser" value="${browser}" /> -->
+	<parameter name="project" value="${project}" />
+	<parameter name="env" value="${env}" />
+	<parameter name="browser" value="${browser}" />
+
+	<listeners>
+		<listener class-name="com.intelehealth.listeners.ScreenshotListener" />
+		<listener class-name="com.intelehealth.listeners.ExtentReportListener" />
+		<listener class-name="com.intelehealth.listeners.GlobalExceptionHandler" />
+		<listener class-name="com.intelehealth.listeners.TestAllureListener" />
+
+	</listeners>
+
+	<test name="Regression Functional Regression Test" verbose="2">
+		<classes>
+			<!--			<class name="com.intelehealth.tests.ChatPageTest" />
+-->
+			<class name="com.intelehealth.tests.AppointmentPageTest" />
+
+			<!--	<class name="com.intelehealth.tests.ProfilePageTest" />
+			<class name="com.intelehealth.tests.SearchPageTest" />
+			<class name="com.intelehealth.tests.NotificationPageTest" />
+			<class name="com.intelehealth.tests.PrescriptionPageTest" />
+			<class name="com.intelehealth.tests.VideoFunctionalityTest" />
+			<class name="com.intelehealth.tests.ChatPageTest" />
+			<class name="com.intelehealth.tests.DashboardPageTest" />
+			<class name="com.intelehealth.tests.AppointmentPageTest" />
+			<class name="com.intelehealth.tests.AwaitPriortyInProgressTest" />
+			<class name="com.intelehealth.tests.VisitSummaryPageTest" />
+			<class name="com.intelehealth.tests.End2EndTest" />
+			<class name="com.intelehealth.tests.CalendarPageTest" />
+			<class name="com.intelehealth.tests.HelpSupportLogoutTest" />
+			<class name="com.intelehealth.tests.MessagesPageTest" />
+			<class name="com.intelehealth.tests.FilterTest" />
+			<class name="com.intelehealth.tests.ChangePasswordLanguageTest" />-->
+			<!--<class name="com.intelehealth.tests.ForgotUsernamePasswordTest" />-->
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="intelehealth Web App Regression Test Suite">
+	<listeners>
+		<listener class-name="com.intelehealth.listeners.ExtentReportListener" />
+		<listener class-name="com.intelehealth.listeners.GlobalExceptionHandler" />
+	</listeners>
+	<test name="Regression Functional Regression Test" verbose="2">
+		<classes>
+			<class name="com.intelehealth.tests.restAssured"></class>
+		</classes>
+	</test>
+</suite>

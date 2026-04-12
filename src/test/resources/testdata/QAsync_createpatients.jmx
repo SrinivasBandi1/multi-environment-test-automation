@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(rampup,40)}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createpatientvisit" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+   &quot;appointments&quot;:[&#xd;
+&#xd;
+   ],&#xd;
+   &quot;encounters&quot;:[&#xd;
+      {&#xd;
+         &quot;encounterDatetime&quot;:&quot;${__time(yyyy-MM-dd&apos;T&apos;hh:mm:ssX)}&quot;,&#xd;
+         &quot;encounterProviders&quot;:[&#xd;
+            {&#xd;
+               &quot;encounterRole&quot;:&quot;73bbb069-9781-4afc-a9d1-54b6b2270e04&quot;,&#xd;
+               &quot;provider&quot;:&quot;612322d6-8b80-4027-af3a-c2805bd32007&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;encounterType&quot;:&quot;67a71486-1a54-468f-ac3e-7091a9a79584&quot;,&#xd;
+         &quot;location&quot;:&quot;9172f0c5-2a6d-43ba-84f8-37276a2db14b&quot;,&#xd;
+         &quot;obs&quot;:[&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;66&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;5&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;5087AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;100&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;5085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;100&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;5086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;100&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;5088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;37.78&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;5242AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;10&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;5092AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;100&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;patient&quot;:&quot;${personUUID}&quot;,&#xd;
+         &quot;uuid&quot;:&quot;${encounterOneUUID}&quot;,&#xd;
+         &quot;visit&quot;:&quot;${visitUUID}&quot;,&#xd;
+         &quot;voided&quot;:0&#xd;
+      },&#xd;
+      {&#xd;
+         &quot;encounterDatetime&quot;:&quot;${__time(yyyy-MM-dd&apos;T&apos;hh:mm:ssX)}&quot;,&#xd;
+         &quot;encounterProviders&quot;:[&#xd;
+            {&#xd;
+               &quot;encounterRole&quot;:&quot;73bbb069-9781-4afc-a9d1-54b6b2270e04&quot;,&#xd;
+               &quot;provider&quot;:&quot;612322d6-8b80-4027-af3a-c2805bd32007&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;encounterType&quot;:&quot;8d5b27bc-c2cc-11de-8d13-0010c6dffd0f&quot;,&#xd;
+         &quot;location&quot;:&quot;9172f0c5-2a6d-43ba-84f8-37276a2db14b&quot;,&#xd;
+         &quot;obs&quot;:[&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;3edb0e09-9135-481e-b8f0-07a26fa9a5ce&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;►\u003cb\u003eCold, Sneezing\u003c/b\u003e: \u003cbr/\u003e• Precipitating factors - Cold weather.\u003cbr/\u003e• Prior treatment sought - None.\u003cbr/\u003e►\u003cb\u003e Associated symptoms\u003c/b\u003e:  \u003cbr/\u003e• Patient reports -\u003cbr/\u003e Itchy throat,  Nasal congestion/Stuffy nose \u003cbr/\u003e• Patient denies -\u003cbr/\u003e Body pain\u003cbr/\u003e &quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;e1761e85-9b50-48ae-8c4d-e6b7eeeba084&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;\u003cb\u003eGeneral exams: \u003c/b\u003e\u003cbr/\u003e•  In-person consultation. \u003cbr/\u003e• Eyes: Jaundice-\u003cbr/\u003e• Eyes: Pallor-\u003cbr/\u003e• Arm-Pinch skin*\u003cbr/\u003e• Nail abnormality-\u003cbr/\u003e• Nail anemia-\u003cbr/\u003e• Ankle--&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;62bff84b-795a-45ad-aae1-80e7f5163a82&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;• Current Vaccinations status - Complete.\u003cbr/\u003e• Pregnancy status - Pregnancy status not known.\u003cbr/\u003e• Medical History - df.\u003cbr/\u003e• Drug history - No recent medication.\u003cbr/\u003e• Allergies - No known allergies.\u003cbr/\u003e• Chewing tobacco status - Do not Chew/denied answer.\u003cbr/\u003e• Smoking history - Patient denied/has no h/o smoking.\u003cbr/\u003e• Alcohol use - No/Denied.\u003cbr/\u003e&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;concept&quot;:&quot;d63ae965-47fb-40e8-8f08-1f46a8a60b2b&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;•Do you have a family history of any of the following? :  daf.\u003cbr/\u003e&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;patient&quot;:&quot;${personUUID}&quot;,&#xd;
+         &quot;uuid&quot;:&quot;${encounterTwoUUID}&quot;,&#xd;
+         &quot;visit&quot;:&quot;${__UUID}&quot;,&#xd;
+         &quot;voided&quot;:0&#xd;
+      }&#xd;
+   ],&#xd;
+   &quot;patients&quot;:[&#xd;
+   {&#xd;
+         &quot;identifiers&quot;:[&#xd;
+            {&#xd;
+               &quot;identifierType&quot;:&quot;05a29f94-c0ed-11e2-94be-8c13b969e334&quot;,&#xd;
+               &quot;location&quot;:&quot;9172f0c5-2a6d-43ba-84f8-37276a2db14b&quot;,&#xd;
+               &quot;preferred&quot;:true&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;person&quot;:&quot;${personUUID}&quot;&#xd;
+      }   &#xd;
+   ],&#xd;
+   &quot;persons&quot;:[&#xd;
+   {&#xd;
+         &quot;addresses&quot;:[&#xd;
+            {&#xd;
+               &quot;address1&quot;:&quot;Address Line 1&quot;,&#xd;
+               &quot;address2&quot;:&quot;Address Line 2&quot;,&#xd;
+               &quot;cityVillage&quot;:&quot;Navi Mumbai:Ghansoli&quot;,&#xd;
+               &quot;country&quot;:&quot;India&quot;,&#xd;
+               &quot;postalCode&quot;:&quot;999999&quot;,&#xd;
+               &quot;stateProvince&quot;:&quot;Maharashtra&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;attributes&quot;:[&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;14d4f066-15f5-102d-96e4-000c29c2a5d7&quot;,&#xd;
+               &quot;value&quot;:&quot;+917777777777&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;1b2f34f7-2bf8-4ef7-9736-f5b858afc160&quot;,&#xd;
+               &quot;value&quot;:&quot;Relationship&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;ecdaadb6-14a0-4ed9-b5b7-cfed87b44b87&quot;,&#xd;
+               &quot;value&quot;:&quot;Occupation&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;5a889d96-0c84-4a04-88dc-59a6e37db2d3&quot;,&#xd;
+               &quot;value&quot;:&quot;General&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;1c718819-345c-4368-aad6-d69b4c267db7&quot;,&#xd;
+               &quot;value&quot;:&quot;Graduation &amp; Higher&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;f4af0ef3-579c-448a-8157-750283409122&quot;,&#xd;
+               &quot;value&quot;:&quot;APL&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;ffc8ebee-f70c-4743-bc3c-2fe4ac843245&quot;,&#xd;
+               &quot;value&quot;:&quot;02 March, 2023&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;84f94425-789d-4293-a0d8-9dc01dbb4f07&quot;,&#xd;
+               &quot;value&quot;:&quot;612322d6-8b80-4027-af3a-c2805bd32007&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;birthdate&quot;:&quot;2023-03-02&quot;,&#xd;
+         &quot;gender&quot;:&quot;M&quot;,&#xd;
+         &quot;names&quot;:[&#xd;
+            {&#xd;
+               &quot;familyName&quot;:&quot;Qa${__Random(1,100,)}&quot;,&#xd;
+               &quot;givenName&quot;:&quot;App&quot;,&#xd;
+               &quot;middleName&quot;:&quot;Test&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;uuid&quot;:&quot;${personUUID}&quot;&#xd;
+      }    &#xd;
+   ],&#xd;
+   &quot;providers&quot;:[&#xd;
+      &#xd;
+   ],&#xd;
+   &quot;visits&quot;:[&#xd;
+      {&#xd;
+         &quot;attributes&quot;:[&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;3f296939-c6d3-4d2e-b8ca-d7f4bfd42c2d&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;General Physician&quot;&#xd;
+            },&#xd;
+            {&#xd;
+               &quot;attributeType&quot;:&quot;64aa50c8-e913-48c6-b8ad-dfa0bccb202b&quot;,&#xd;
+               &quot;uuid&quot;:&quot;${__UUID}&quot;,&#xd;
+               &quot;value&quot;:&quot;No Data&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;location&quot;:&quot;9172f0c5-2a6d-43ba-84f8-37276a2db14b&quot;,&#xd;
+         &quot;patient&quot;:&quot;${personUUID}&quot;,&#xd;
+         &quot;startDatetime&quot;:&quot;${__timeShift(yyyy-MM-dd&apos;T&apos;hh:mm:ssX,,-PT5M,,)}&quot;,&#xd;
+         &quot;uuid&quot;:&quot;${visitUUID}&quot;,&#xd;
+         &quot;visitType&quot;:&quot;a86ac96e-2e07-47a7-8e72-8216a1a75bfd&quot;&#xd;
+      }&#xd;
+   ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">pathqa.intelehealth.org</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">EMR-Middleware/webapi/push/pushdata</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">uuids.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames">personUUID,visitUUID,encounterOneUUID,encounterTwoUUID</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authroization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic bnVyc2UxOk51cnNlQDEyMw==</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createpatientvisit" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;appointments&quot;: [],&#xd;
+  &quot;encounters&quot;: [&#xd;
+    {&#xd;
+      &quot;encounterDatetime&quot;: &quot;2024-10-07T19:09:43.310+0600&quot;,&#xd;
+      &quot;encounterProviders&quot;: [&#xd;
+        {&#xd;
+          &quot;encounterRole&quot;: &quot;73bbb069-9781-4afc-a9d1-54b6b2270e04&quot;,&#xd;
+          &quot;provider&quot;: &quot;28cea4ab-3188-434a-82f0-055133090a38&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;encounterType&quot;: &quot;67a71486-1a54-468f-ac3e-7091a9a79584&quot;,&#xd;
+      &quot;location&quot;: &quot;9172f0c5-2a6d-43ba-84f8-37276a2db14b&quot;,&#xd;
+      &quot;obs&quot;: [&#xd;
+        {&#xd;
+          &quot;concept&quot;: &quot;5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+          &quot;uuid&quot;: &quot;c31211b4-4db9-4cf6-83e2-3454f17878fb&quot;,&#xd;
+          &quot;value&quot;: &quot;121&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;concept&quot;: &quot;5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,&#xd;
+          &quot;uuid&quot;: &quot;71fd72f9-47f6-4cd9-9689-0116723f554d&quot;,&#xd;
+          &quot;value&quot;: &quot;56&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;patient&quot;: &quot;c170efb8-4ff0-4827-8134-05ff6f3cb842&quot;,&#xd;
+      &quot;uuid&quot;: &quot;6e899084-4cec-4005-9a42-d43379178884&quot;,&#xd;
+      &quot;visit&quot;: &quot;0c8b41f5-ba72-4ecc-bc82-ac3df9893632&quot;,&#xd;
+      &quot;voided&quot;: 0&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;encounterDatetime&quot;: &quot;2024-10-07T19:09:43.451+0600&quot;,&#xd;
+      &quot;encounterProviders&quot;: [&#xd;
+        {&#xd;
+          &quot;encounterRole&quot;: &quot;73bbb069-9781-4afc-a9d1-54b6b2270e04&quot;,&#xd;
+          &quot;provider&quot;: &quot;28cea4ab-3188-434a-82f0-055133090a38&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;encounterType&quot;: &quot;8d5b27bc-c2cc-11de-8d13-0010c6dffd0f&quot;,&#xd;
+      &quot;location&quot;: &quot;9172f0c5-2a6d-43ba-84f8-37276a2db14b&quot;,&#xd;
+      &quot;obs&quot;: [&#xd;
+        {&#xd;
+          &quot;concept&quot;: &quot;3edb0e09-9135-481e-b8f0-07a26fa9a5ce&quot;,&#xd;
+          &quot;uuid&quot;: &quot;2973fa47-55f8-4054-9d15-9b7ce5fd7c39&quot;,&#xd;
+          &quot;value&quot;: &quot;{\&quot;en\&quot;:\&quot;►\u003cb\u003eFever\u003c\\/b\u003e: \u003cbr\\/\u003e• Duration -  12 Months.\u003cbr\\/\u003e• Nature of fever* - Every few days.\u003cbr\\/\u003e• Timing - All day.\u003cbr\\/\u003e• Severity* - Low.\u003cbr\\/\u003e• H\\/o specific illness - None.\u003cbr\\/\u003e• H\\/o of specific epidemic in community - None.\u003cbr\\/\u003e• Prior treatment sought - None.\u003cbr\\/\u003e►\u003cb\u003e Associated symptoms\u003c\\/b\u003e:  \u003cbr\\/\u003e• Patient denies -\u003cbr\\/\u003e Abdominal pain,  Burning sensation during urination,  change in frequency of urination,  Chest pain\\/discomfort,  Chills,  Color change in urine,  Cough,  Diarrhea,  Ear pain,  General weakness,  Headache,  Jaundice,  Joint pain,  Loss of smell\\/taste sensation,  Nausea,  Neck stiffness,  Night sweats,  Pain during urination,  Pain in any other location ,  Photosensitivity,  Skin rash,  Trouble when starting to urinate or trouble maintaining flow of urine,  Vomiting\u003cbr\\/\u003e \&quot;,\&quot;l-en\&quot;:\&quot;►Fever::● Since when have you had this symptom?*\u003cbr\\/\u003e• 12 Months\u003cbr\\/\u003e● Nature of fever*\u003cbr\\/\u003e•Every few days\u003cbr\\/\u003e● In a day, when do you feel fever the most?*\u003cbr\\/\u003e•All day\u003cbr\\/\u003e● Severity*\u003cbr\\/\u003e•Low\u003cbr\\/\u003e● Have you ever been diagnosed with any of the following specific diseases?\u003cbr\\/\u003e•None\u003cbr\\/\u003e● Has there been a recent epidemic in the community (other than Covid-19)?\u003cbr\\/\u003e•None\u003cbr\\/\u003e● Have you taken any treatment (including self-medication or home remedies) or seen any health provider for this problem before coming here today?\u003cbr\\/\u003e•None\u003cbr\\/\u003e►Do you have the following symptom(s)?*::Patient denies -\u003cbr\\/\u003e•Abdominal pain\u003cbr\\/\u003e•Burning sensation during urination\u003cbr\\/\u003e•Change in frequency of urination [describe]\u003cbr\\/\u003e•Chest pain\\/discomfort\u003cbr\\/\u003e•Chills\u003cbr\\/\u003e•Color change in urine [describe]\u003cbr\\/\u003e•Cough\u003cbr\\/\u003e•Diarrhea\u003cbr\\/\u003e•Ear pain\u003cbr\\/\u003e•General weakness\u003cbr\\/\u003e•Headache\u003cbr\\/\u003e•Yellow eyes\\/skin\u003cbr\\/\u003e•Joint pain\u003cbr\\/\u003e•Loss of smell\\/taste sensation\u003cbr\\/\u003e•Nausea\u003cbr\\/\u003e•Neck stiffness\u003cbr\\/\u003e•Night sweats\u003cbr\\/\u003e•Other [describe]\u003cbr\\/\u003e•Pain during urination\u003cbr\\/\u003e•Pain in any other location \u003cbr\\/\u003e•Photosensitivity\u003cbr\\/\u003e•Skin rash\u003cbr\\/\u003e•Trouble when starting to urinate or trouble maintaining flow of urine\u003cbr\\/\u003e•Vomiting\u003cbr\\/\u003e\&quot;}&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;concept&quot;: &quot;e1761e85-9b50-48ae-8c4d-e6b7eeeba084&quot;,&#xd;
+          &quot;uuid&quot;: &quot;83a1595d-465b-49ed-926b-c37b2b557cd3&quot;,&#xd;
+          &quot;value&quot;: &quot;{\&quot;en\&quot;:\&quot;\u003cbr\\/\u003e►\u003cb\u003eGeneral exams: \u003c\\/b\u003e\u003cbr\\/\u003e• Eyes: Jaundice-no jaundice seen. \u003cbr\\/\u003e• Eyes: Pallor-normal pallor. \u003cbr\\/\u003e• Arm-Pinch skin* - pinch test normal. \u003cbr\\/\u003e• Nail abnormality-nails normal. \u003cbr\\/\u003e• Nail anemia-Nails are normal. \u003cbr\\/\u003e• Ankle-no pedal oedema. -\u003cbr\\/\u003e►\u003cb\u003eMouth: \u003c\\/b\u003e\u003cbr\\/\u003e•  back of throat normal. -\u003cbr\\/\u003e►\u003cb\u003eAny Location: \u003c\\/b\u003e\u003cbr\\/\u003e• Skin Rash:-no rash. \u003cbr\\/\u003e• Ulcer:-Is there an ulcer? * - no ulcer. -\u003cbr\\/\u003e►\u003cb\u003eAbdomen: \u003c\\/b\u003e\u003cbr\\/\u003e•  no tenderness.\&quot;,\&quot;l-en\&quot;:\&quot;►\u003cb\u003eGeneral exams: \u003c\\/b\u003e\u003cbr\\/\u003e• Eyes: Jaundice-● Is there jaundice?*\u003cbr\\/\u003e•No-\u003cbr\\/\u003e• Eyes: Pallor-● Is there pallor?*\u003cbr\\/\u003e•Normal-\u003cbr\\/\u003e• Arm-● Pinch skin*\u003cbr\\/\u003e•Normal-\u003cbr\\/\u003e• Nail abnormality-● Is there any nail abnormality?*\u003cbr\\/\u003e•Nails are normal-\u003cbr\\/\u003e• Nail anemia-● Are the nails pale?*\u003cbr\\/\u003e•Nails are normal-\u003cbr\\/\u003e• Ankle-● Is there ankle oedema?\u003cbr\\/\u003e•No oedema--►\u003cb\u003eMouth: \u003c\\/b\u003e\u003cbr\\/\u003e• Back of throat (redness, swelling)-● Ask patient to open mouth and stick tongue out.  Shine a torch to examine the back of throat and look for swelling\\/redness *\u003cbr\\/\u003e•Normal--►\u003cb\u003eAny Location: \u003c\\/b\u003e\u003cbr\\/\u003e• Skin Rash-● Is there any rash? *\u003cbr\\/\u003e•No-\u003cbr\\/\u003e• Ulcer-● Is there an ulcer? *\u003cbr\\/\u003e•No--►\u003cb\u003eAbdomen: \u003c\\/b\u003e\u003cbr\\/\u003e• Tenderness-● Is there abdominal tenderness?*\u003cbr\\/\u003e•No tenderness--\&quot;}&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;concept&quot;: &quot;62bff84b-795a-45ad-aae1-80e7f5163a82&quot;,&#xd;
+          &quot;uuid&quot;: &quot;e07840e1-e6bb-4d1d-a582-db1235bf40f8&quot;,&#xd;
+          &quot;value&quot;: &quot;{\&quot;en\&quot;:\&quot;• Medical History - None.\u003cbr\\/\u003e• Drug history - No recent medication.\u003cbr\\/\u003e• Allergies - No known allergies.\u003cbr\\/\u003e• Smoking history* - Patient denied\\/has no h\\/o smoking.\u003cbr\\/\u003e• Alcohol use* - No.\u003cbr\\/\u003e\&quot;,\&quot;l-en\&quot;:\&quot;● Do you have a history of any of the following?*\u003cbr\\/\u003e•None\u003cbr\\/\u003e● Have you recently taken any kind of medicine (including ayurvedic\\/homeopathic\\/unani\\/herbal)?*\u003cbr\\/\u003e•No\u003cbr\\/\u003e● Do you have any allergies?*\u003cbr\\/\u003e•No known allergies\u003cbr\\/\u003e● Smoking history*\u003cbr\\/\u003e•Never-smoker\u003cbr\\/\u003e● Alcohol use*\u003cbr\\/\u003e•No\u003cbr\\/\u003e\&quot;}&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;concept&quot;: &quot;d63ae965-47fb-40e8-8f08-1f46a8a60b2b&quot;,&#xd;
+          &quot;uuid&quot;: &quot;47182ba9-d787-4aa8-8db4-d71f623b3abb&quot;,&#xd;
+          &quot;value&quot;: &quot;{\&quot;en\&quot;:\&quot;•Do you have a family history of any of the following?* : • None.\u003cbr\\/\u003e\&quot;,\&quot;l-en\&quot;:\&quot;•Do you have a family history of any of the following?* : •None.\u003cbr\\/\u003e\&quot;}&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;patient&quot;: &quot;c170efb8-4ff0-4827-8134-05ff6f3cb842&quot;,&#xd;
+      &quot;uuid&quot;: &quot;b0a16c7f-6080-4f5d-aeeb-0dc38b7da6e2&quot;,&#xd;
+      &quot;visit&quot;: &quot;0c8b41f5-ba72-4ecc-bc82-ac3df9893632&quot;,&#xd;
+      &quot;voided&quot;: 0&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;patients&quot;: [],&#xd;
+  &quot;persons&quot;: [],&#xd;
+  &quot;providers&quot;: [],&#xd;
+  &quot;visits&quot;: [&#xd;
+    {&#xd;
+      &quot;attributes&quot;: [&#xd;
+        {&#xd;
+          &quot;attributeType&quot;: &quot;3f296939-c6d3-4d2e-b8ca-d7f4bfd42c2d&quot;,&#xd;
+          &quot;uuid&quot;: &quot;e8445b00-59fc-409b-b82a-5a69c1529e8c&quot;,&#xd;
+          &quot;value&quot;: &quot;General Physician&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;attributeType&quot;: &quot;64aa50c8-e913-48c6-b8ad-dfa0bccb202b&quot;,&#xd;
+          &quot;uuid&quot;: &quot;1e982272-6513-46cc-b44f-42853dc5a222&quot;,&#xd;
+          &quot;value&quot;: &quot;No Data&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;location&quot;: &quot;9172f0c5-2a6d-43ba-84f8-37276a2db14b&quot;,&#xd;
+      &quot;patient&quot;: &quot;c170efb8-4ff0-4827-8134-05ff6f3cb842&quot;,&#xd;
+      &quot;startDatetime&quot;: &quot;2024-10-07T19:09:43.310+0600&quot;,&#xd;
+      &quot;uuid&quot;: &quot;0c8b41f5-ba72-4ecc-bc82-ac3df9893632&quot;,&#xd;
+      &quot;visitType&quot;: &quot;a86ac96e-2e07-47a7-8e72-8216a1a75bfd&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">qa.intelehealth.org</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">EMR-Middleware/webapi/push/pushdata</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">C:/Users/Hello/Downloads/uuids1.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames">personUUID,visitUUID,encounterOneUUID,encounterTwoUUID</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authroization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic c2hhaWxhamFuOk51cnNlQDEyMw==</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">qa.intelehealth.org</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/EMR-Middleware/webapi/pull/pulldata/9172f0c5-2a6d-43ba-84f8-37276a2db14b/2006-10-07%2020:34:28/0/50</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Created from cURL on 2024-10-08T14:48:20.8450343</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic c2hhaWxhamFuOk51cnNlQDEyMw==</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Created from cURL on 2024-10-08T14:48:20.8502101</stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+          <stringProp name="JSONPostProcessor.referenceNames">status</stringProp>
+          <stringProp name="JSONPostProcessor.jsonPathExprs">$..status</stringProp>
+          <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+        </JSONPostProcessor>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
